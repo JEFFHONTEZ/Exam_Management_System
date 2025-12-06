@@ -33,18 +33,19 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                     <>
                         <div className="grid gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="login">Registration Number or Email</Label>
                                 <Input
-                                    id="email"
-                                    type="email"
-                                    name="email"
+                                    id="login"
+                                    type="text" // Changed from "email" to "text"
+                                    name="login" // Changed from "email" to "login"
                                     required
                                     autoFocus
                                     tabIndex={1}
-                                    autoComplete="email"
-                                    placeholder="email@example.com"
+                                    autoComplete="username" // Changed for browser autofill
+                                    placeholder="Username or Email"
                                 />
-                                <InputError message={errors.email} />
+                                <InputError message={errors.login} />{' '}
+                                {/* Check for 'login' errors */}
                             </div>
 
                             <div className="grid gap-2">

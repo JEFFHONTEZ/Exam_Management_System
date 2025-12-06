@@ -60,21 +60,34 @@ class QuestionController extends Controller
             }
         }
         $data = $request->validate([
-            'prompt' => 'required|string',
-            'points' => 'nullable|numeric|min:0',
+            'type'            => 'required|in:short_answer,multiple_choice,true_false',
+            'prompt'          => 'required|string',
+            'points'          => 'nullable|numeric|min:0',
             'expected_answer' => 'nullable|string',
+            // Validate options if it is multiple choice
+            'options'         => 'nullable|array',
+            'options.*'       => 'required_with:options|string',
         ]);
 
         $question = $exam->questions()->create([
+            'type'   => $data['type'],
             'prompt' => $data['prompt'],
             'points' => $data['points'] ?? 1,
         ]);
 
+        // Save Expected Answer (Correct Answer)
         if (!empty($data['expected_answer'])) {
             $question->answerKey()->create(['answer' => $data['expected_answer']]);
         }
 
-    return redirect()->route('exams.questions.index', $exam)->with('message', 'Question created');
+        // Save Options for MCQ
+        if ($data['type'] === 'multiple_choice' && !empty($data['options'])) {
+            foreach ($data['options'] as $opt) {
+                $question->options()->create(['option_text' => $opt]);
+            }
+        }
+
+        return redirect()->route('exams.questions.index', $exam)->with('message', 'Question created');
     }
 
     public function edit(Exam $exam, Question $question)
@@ -89,13 +102,16 @@ class QuestionController extends Controller
 	    }
 	}
 	$exam->load('unit.course');
-	$question->load('answerKey');
+        // Load options for the form
+        $question->load(['answerKey', 'options']); 
+
         return inertia('Questions/Edit', [
-            'exam' => $exam,
-            'unit' => $exam->unit,
-            'course' => $exam->unit?->course,
-            'question' => $question,
+            'exam'      => $exam,
+            'unit'      => $exam->unit,
+            'course'    => $exam->unit?->course,
+            'question'  => $question,
             'answerKey' => $question->answerKey,
+            'options'   => $question->options, // Pass options to view
         ]);
     }
 
@@ -111,23 +127,40 @@ class QuestionController extends Controller
             }
         }
         $data = $request->validate([
-            'prompt' => 'required|string',
-            'points' => 'nullable|numeric|min:0',
+            'type'            => 'required|in:short_answer,multiple_choice,true_false',
+            'prompt'          => 'required|string',
+            'points'          => 'nullable|numeric|min:0',
             'expected_answer' => 'nullable|string',
+            'options'         => 'nullable|array',
+            'options.*'       => 'required_with:options|string',
         ]);
 
         $question->update([
+            'type'   => $data['type'],
             'prompt' => $data['prompt'],
             'points' => $data['points'] ?? $question->points,
         ]);
 
-        // Simplify: keep only one canonical answer row
+        // Update Answer Key
         $question->answerKey()->delete();
         if (!empty($data['expected_answer'])) {
             $question->answerKey()->create(['answer' => $data['expected_answer']]);
         }
 
-    return redirect()->route('exams.questions.index', $exam)->with('message', 'Question updated');
+        // Update Options (Delete all and recreate for simplicity)
+        if ($data['type'] === 'multiple_choice') {
+            $question->options()->delete();
+            if(!empty($data['options'])) {
+                foreach ($data['options'] as $opt) {
+                    $question->options()->create(['option_text' => $opt]);
+                }
+            }
+        } elseif ($data['type'] !== 'multiple_choice') {
+            // Cleanup options if type changed from MCQ to something else
+            $question->options()->delete();
+        }
+
+        return redirect()->route('exams.questions.index', $exam)->with('message', 'Question updated');
     }
 
     public function destroy(Exam $exam, Question $question)

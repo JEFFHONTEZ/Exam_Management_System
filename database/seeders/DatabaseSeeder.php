@@ -16,20 +16,20 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::firstOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'password' => Hash::make('password'),
-                'email_verified_at' => now(),
-            ]
-        );
+        // User::firstOrCreate(
+        //     ['email' => 'test@example.com'],
+        //     [
+        //         'name' => 'Test User',
+        //         'password' => Hash::make('password'),
+        //         'email_verified_at' => now(),
+        //     ]
+        // );
 
         $this->call(RolesTableSeeder::class);
         $this->call(UserSeeder::class); // Added: seed users with roles
-        $this->call(CourseSeeder::class);
-        $this->call(UnitSeeder::class);
-        $this->call(ExamSeeder::class);
-        $this->call(QuestionSeeder::class); // Ensure questions after exams
+        // $this->call(CourseSeeder::class);
+        // $this->call(UnitSeeder::class);
+        // $this->call(ExamSeeder::class);
+        // $this->call(QuestionSeeder::class); // Ensure questions after exams
     }
 }

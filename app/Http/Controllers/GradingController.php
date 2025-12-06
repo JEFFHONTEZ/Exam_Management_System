@@ -51,8 +51,10 @@ class GradingController extends Controller
             ]);
         }
 
-        // Reload answers with question and order by question.order
-        $answers = $session->studentAnswers()->with('question')->get()
+        // UPDATED: Load question relationships (answerKey for expected answer, options for context)
+        $answers = $session->studentAnswers()
+            ->with(['question.answerKey', 'question.options']) 
+            ->get()
             ->sortBy(function ($sa) {
                 return $sa->question->order ?? PHP_INT_MAX;
             })->values();
@@ -109,15 +111,9 @@ class GradingController extends Controller
         return redirect()->route('grading.index')->with('status', 'Grading saved');
     }
 
-    /**
-     * Preview the result PDF without publishing (grading flag not required).
-     * Teachers and admins only, constrained to their units/exams via policy checks above.
-     */
     public function previewPdf(ExamSession $session)
     {
         $this->authorize('view', $session);
-        // Reuse student PDF view but allow preview when not graded.
-        // We will temporarily set is_graded=true in memory for rendering computations only.
         $original = $session->is_graded;
         $session->is_graded = true;
         try {
