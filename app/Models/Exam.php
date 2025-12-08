@@ -69,17 +69,17 @@ class Exam extends Model
     /**
      * Ensure `end_time` is computed from `start_time` + `duration_minutes` when saving.
      */
-    protected static function booted()
-    {
-        static::saving(function (Exam $exam) {
-            // Only compute end_time if it's not already set (preserve explicit end_time).
-            if ($exam->start_time && $exam->duration_minutes && is_null($exam->end_time)) {
-                $start = $exam->start_time instanceof \Illuminate\Support\Carbon
-                    ? $exam->start_time
-                    : \Illuminate\Support\Carbon::parse($exam->start_time);
+    // protected static function booted()
+    // {
+    //     static::saving(function (Exam $exam) {
+    //         // Only compute end_time if it's not already set (preserve explicit end_time).
+    //         if ($exam->start_time && $exam->duration_minutes && is_null($exam->end_time)) {
+    //             $start = $exam->start_time instanceof \Illuminate\Support\Carbon
+    //                 ? $exam->start_time
+    //                 : \Illuminate\Support\Carbon::parse($exam->start_time);
 
-                $exam->end_time = $start->copy()->addMinutes((int) $exam->duration_minutes);
-            }
-        });
-    }
+    //             $exam->end_time = $start->copy()->addMinutes((int) $exam->duration_minutes);
+    //         }
+    //     });
+    // }
 }

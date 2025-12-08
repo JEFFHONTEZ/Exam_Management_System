@@ -11,6 +11,7 @@ class Question extends Model
 
     protected $fillable = [
         'exam_id',
+        'type',
         'prompt', // renamed from content for clarity in UI
         'points',
         'order',
@@ -30,5 +31,10 @@ class Question extends Model
     public function studentAnswers()
     {
         return $this->hasMany(StudentAnswer::class);
+    }
+
+    public function options()
+    {
+        return $this->hasMany(QuestionOption::class);
     }
 }

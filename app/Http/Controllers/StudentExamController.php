@@ -83,7 +83,7 @@ class StudentExamController extends Controller
             $session->refresh();
         }
 
-        $questions = $exam->questions()->orderBy('order')->get();
+        $questions = $exam->questions()->with('options')->orderBy('order')->get();
         $sessionEndAt = optional($session->started_at instanceof Carbon ? $session->started_at : Carbon::parse($session->started_at))
             ->copy()
             ->addMinutes((int) $exam->duration_minutes);

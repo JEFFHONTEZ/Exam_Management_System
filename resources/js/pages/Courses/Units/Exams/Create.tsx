@@ -1,11 +1,11 @@
-import { PageProps as InertiaPageProps } from '@inertiajs/core';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
-import { Head, Link, useForm, usePage } from '@inertiajs/react';
+import { PageProps as InertiaPageProps } from '@inertiajs/core';
+import { Head, useForm, usePage } from '@inertiajs/react';
 import { OctagonAlert } from 'lucide-react';
 
 interface Unit {
@@ -48,6 +48,7 @@ export default function Index() {
         passing_score: 70,
         is_published: false,
         start_time: '',
+        end_time: '',
     });
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -58,8 +59,8 @@ export default function Index() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title={`Create Exam for ${unit.title}`} />
-            <div className='w-8/12 p-4'>
-                <form onSubmit={handleSubmit} className='space-y-4'>
+            <div className="w-8/12 p-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Display validation errors */}
                     {errors && Object.keys(errors).length > 0 && (
                         <Alert>
@@ -72,28 +73,89 @@ export default function Index() {
                             </AlertDescription>
                         </Alert>
                     )}
-                    <div className='gap-2'>
+                    <div className="gap-2">
                         <Label htmlFor="exam-title">Title</Label>
-                        <Input type='text' placeholder="Enter exam title" value={data.title} onChange={e => setData('title', e.target.value)} />
+                        <Input
+                            type="text"
+                            placeholder="Enter exam title"
+                            value={data.title}
+                            onChange={(e) => setData('title', e.target.value)}
+                        />
                     </div>
-                    <div className='gap-2'>
-                        <Label htmlFor="exam-duration">Duration (minutes)</Label>
-                        <Input type='number' min={1} placeholder="Enter duration in minutes" value={data.duration_minutes} onChange={e => setData('duration_minutes', Number(e.target.value))} />
+                    <div className="gap-2">
+                        <Label htmlFor="exam-duration">
+                            Duration (minutes)
+                        </Label>
+                        <Input
+                            type="number"
+                            min={1}
+                            placeholder="Enter duration in minutes"
+                            value={data.duration_minutes}
+                            onChange={(e) =>
+                                setData(
+                                    'duration_minutes',
+                                    Number(e.target.value),
+                                )
+                            }
+                        />
                     </div>
-                    <div className='gap-2'>
-                        <Label htmlFor="exam-passing-score">Passing Score</Label>
-                        <Input type='number' min={0} max={100} step={0.01} placeholder="Enter passing score" value={data.passing_score} onChange={e => setData('passing_score', Number(e.target.value))} />
+                    <div className="gap-2">
+                        <Label htmlFor="exam-passing-score">
+                            Passing Score
+                        </Label>
+                        <Input
+                            type="number"
+                            min={0}
+                            max={100}
+                            step={0.01}
+                            placeholder="Enter passing score"
+                            value={data.passing_score}
+                            onChange={(e) =>
+                                setData('passing_score', Number(e.target.value))
+                            }
+                        />
                     </div>
-                    <div className='gap-2'>
-                        <Label htmlFor="exam-start-time">Start Date & Time</Label>
-                        <Input id="exam-start-time" type='datetime-local' value={data.start_time}
-                               onChange={e => setData('start_time', e.target.value)} />
+                    <div className="gap-2">
+                        <Label htmlFor="exam-start-time">
+                            Start Date & Time
+                        </Label>
+                        <Input
+                            id="exam-start-time"
+                            type="datetime-local"
+                            value={data.start_time}
+                            onChange={(e) =>
+                                setData('start_time', e.target.value)
+                            }
+                        />
                     </div>
-                    <div className='gap-2'>
+                    <div className="gap-2">
                         <Label htmlFor="exam-published">Published</Label>
-                        <input type='checkbox' checked={data.is_published} onChange={e => setData('is_published', e.target.checked)} />
+                        <input
+                            type="checkbox"
+                            checked={data.is_published}
+                            onChange={(e) =>
+                                setData('is_published', e.target.checked)
+                            }
+                        />
                     </div>
-                    <Button type="submit" disabled={processing}>Create Exam</Button>
+                    <div className="gap-2">
+                        <Label htmlFor="exam-end-time">End Date & Time</Label>
+                        <Input
+                            id="exam-end-time"
+                            type="datetime-local"
+                            value={data.end_time}
+                            onChange={(e) =>
+                                setData('end_time', e.target.value)
+                            }
+                        />
+                        <p className="mt-1 text-xs text-muted-foreground">
+                            This is the strict deadline. The exam will close at
+                            this time regardless of duration.
+                        </p>
+                    </div>
+                    <Button type="submit" disabled={processing}>
+                        Create Exam
+                    </Button>
                 </form>
             </div>
         </AppLayout>

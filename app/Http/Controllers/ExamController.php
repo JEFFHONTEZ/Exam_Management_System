@@ -143,6 +143,7 @@ class ExamController extends Controller
             'passing_score' => 'required|numeric|min:0|max:100',
             'is_published' => 'boolean', // Expects a true/false value
             'start_time' => 'required|date',
+            'end_time'   => 'required|date|after:start_time',
         ]);
 
         // Use the unit relationship to create and automatically set the unit_id
@@ -152,6 +153,7 @@ class ExamController extends Controller
             'passing_score' => $request->passing_score,
             'is_published' => $request->is_published ?? false,
             'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
         ];
         if ($user instanceof User && $user->hasRole('teacher')) {
             $payload['teacher_id'] = optional($user->teacher)->id;
@@ -201,6 +203,7 @@ class ExamController extends Controller
             'passing_score' => 'required|numeric|min:0|max:100',
             'is_published' => 'boolean',
             'start_time' => 'required|date',
+            'end_time'   => 'required|date|after:start_time',
         ]);
 
         $update = [
@@ -209,6 +212,7 @@ class ExamController extends Controller
             'passing_score' => $request->passing_score,
             'is_published' => $request->is_published ?? false,
             'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
         ];
         if ($user instanceof User && $user->hasRole('teacher')) {
             $update['teacher_id'] = optional($user->teacher)->id;
