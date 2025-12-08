@@ -6,6 +6,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [
+        process.env.VERCEL ? null : wayfinder(),
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
             ssr: 'resources/js/ssr.tsx',
