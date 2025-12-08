@@ -1,4 +1,3 @@
-import Auth from './Auth'
 import DashboardController from './DashboardController'
 import StudentsController from './StudentsController'
 import TeacherController from './TeacherController'
@@ -14,9 +13,9 @@ import GradingController from './GradingController'
 import Admin from './Admin'
 import RevisionDocumentController from './RevisionDocumentController'
 import Settings from './Settings'
+import Auth from './Auth'
 
 const Controllers = {
-    Auth: Object.assign(Auth, Auth),
     DashboardController: Object.assign(DashboardController, DashboardController),
     StudentsController: Object.assign(StudentsController, StudentsController),
     TeacherController: Object.assign(TeacherController, TeacherController),
@@ -32,6 +31,7 @@ const Controllers = {
     Admin: Object.assign(Admin, Admin),
     RevisionDocumentController: Object.assign(RevisionDocumentController, RevisionDocumentController),
     Settings: Object.assign(Settings, Settings),
+    Auth: Object.assign(Auth, Auth),
 }
 
 export default Controllers

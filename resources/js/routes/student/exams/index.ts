@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-export const start = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const start = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: start.url(args, options),
     method: 'get',
 })
@@ -19,7 +19,7 @@ start.definition = {
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-start.url = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+start.url = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { exam: args }
     }
@@ -52,7 +52,7 @@ start.url = (args: { exam: string | number | { id: string | number } } | [exam: 
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-start.get = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+start.get = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: start.url(args, options),
     method: 'get',
 })
@@ -62,7 +62,7 @@ start.get = (args: { exam: string | number | { id: string | number } } | [exam: 
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-start.head = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+start.head = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: start.url(args, options),
     method: 'head',
 })
@@ -72,7 +72,7 @@ start.head = (args: { exam: string | number | { id: string | number } } | [exam:
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-const startForm = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const startForm = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: start.url(args, options),
     method: 'get',
 })
@@ -82,7 +82,7 @@ const startForm = (args: { exam: string | number | { id: string | number } } | [
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-startForm.get = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+startForm.get = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: start.url(args, options),
     method: 'get',
 })
@@ -92,7 +92,7 @@ startForm.get = (args: { exam: string | number | { id: string | number } } | [ex
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-startForm.head = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+startForm.head = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: start.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

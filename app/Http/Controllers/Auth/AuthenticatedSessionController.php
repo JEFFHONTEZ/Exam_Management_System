@@ -17,20 +17,24 @@ class AuthenticatedSessionController extends Controller
     /**
      * Show the login page.
      */
-    public function create(Request $request): Response
+    // FIX: Added 'string $role = null' here
+    public function create(Request $request, ?string $role = null): Response
     {
         return Inertia::render('auth/login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => $request->session()->get('status'),
+            'loginRole' => $role, // Now this variable exists
         ]);
     }
 
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    // FIX: Added 'string $role = null' here as well
+    public function store(LoginRequest $request, ?string $role = null): RedirectResponse
     {
-        $user = $request->validateCredentials();
+        // Pass the role to validation to ensure security
+        $user = $request->validateCredentials($role);
 
         if (Features::enabled(Features::twoFactorAuthentication()) && $user->hasEnabledTwoFactorAuthentication()) {
             $request->session()->put([

@@ -9,6 +9,10 @@ use App\Http\Middleware\LogSensitiveView;
 use App\Models\{Course, Exam, Unit, User, Question, ExamSession, Role, Teacher, TeacherUnitAssignment, StudentAnswer, QuestionAnswer};
 use App\Observers\{GenericCrudObserver, UserObserver, ExamSessionObserver, ExamObserver};
 use App\Policies\{CoursePolicy, ExamPolicy, UnitPolicy, UserPolicy};
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Http\Request;
+use Illuminate\Cache\RateLimiting\Limit;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,20 +29,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-    // Register route middleware aliases
-    Route::aliasMiddleware('fortify.two-factor.enabled', EnsureTwoFactorFeatureEnabled::class);
-    Route::aliasMiddleware('audit.view', LogSensitiveView::class);
+        // Register route middleware aliases
+        Route::aliasMiddleware('fortify.two-factor.enabled', EnsureTwoFactorFeatureEnabled::class);
+        Route::aliasMiddleware('audit.view', LogSensitiveView::class);
+        // Allow only 3 attempts per minute for admin
+        RateLimiter::for('admin-login', function (Request $request) {
+            return Limit::perMinute(1)->by($request->ip());
+        });
 
         // Register model observers for CRUD auditing
         Course::observe(GenericCrudObserver::class);
         Unit::observe(GenericCrudObserver::class);
-    Exam::observe(GenericCrudObserver::class);
-    Exam::observe(ExamObserver::class);
+        Exam::observe(GenericCrudObserver::class);
+        Exam::observe(ExamObserver::class);
         Question::observe(GenericCrudObserver::class);
-    ExamSession::observe(GenericCrudObserver::class);
-    // Email triggers
-    User::observe(UserObserver::class);
-    ExamSession::observe(ExamSessionObserver::class);
+        ExamSession::observe(GenericCrudObserver::class);
+        // Email triggers
+        User::observe(UserObserver::class);
+        ExamSession::observe(ExamSessionObserver::class);
         User::observe(GenericCrudObserver::class);
         if (class_exists(Role::class)) {
             Role::observe(GenericCrudObserver::class);

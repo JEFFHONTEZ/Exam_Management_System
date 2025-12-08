@@ -85,7 +85,7 @@ index.form = indexForm
 * @see app/Http/Controllers/GradingController.php:38
 * @route '/grading/session/{session}'
 */
-export const session = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const session = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: session.url(args, options),
     method: 'get',
 })
@@ -100,7 +100,7 @@ session.definition = {
 * @see app/Http/Controllers/GradingController.php:38
 * @route '/grading/session/{session}'
 */
-session.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+session.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -133,7 +133,7 @@ session.url = (args: { session: string | number | { id: string | number } } | [s
 * @see app/Http/Controllers/GradingController.php:38
 * @route '/grading/session/{session}'
 */
-session.get = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+session.get = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: session.url(args, options),
     method: 'get',
 })
@@ -143,7 +143,7 @@ session.get = (args: { session: string | number | { id: string | number } } | [s
 * @see app/Http/Controllers/GradingController.php:38
 * @route '/grading/session/{session}'
 */
-session.head = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+session.head = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: session.url(args, options),
     method: 'head',
 })
@@ -153,7 +153,7 @@ session.head = (args: { session: string | number | { id: string | number } } | [
 * @see app/Http/Controllers/GradingController.php:38
 * @route '/grading/session/{session}'
 */
-const sessionForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const sessionForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: session.url(args, options),
     method: 'get',
 })
@@ -163,7 +163,7 @@ const sessionForm = (args: { session: string | number | { id: string | number } 
 * @see app/Http/Controllers/GradingController.php:38
 * @route '/grading/session/{session}'
 */
-sessionForm.get = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+sessionForm.get = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: session.url(args, options),
     method: 'get',
 })
@@ -173,7 +173,7 @@ sessionForm.get = (args: { session: string | number | { id: string | number } } 
 * @see app/Http/Controllers/GradingController.php:38
 * @route '/grading/session/{session}'
 */
-sessionForm.head = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+sessionForm.head = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: session.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -190,7 +190,7 @@ session.form = sessionForm
 * @see app/Http/Controllers/GradingController.php:67
 * @route '/grading/session/{session}/grade'
 */
-export const grade = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const grade = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: grade.url(args, options),
     method: 'post',
 })
@@ -205,7 +205,7 @@ grade.definition = {
 * @see app/Http/Controllers/GradingController.php:67
 * @route '/grading/session/{session}/grade'
 */
-grade.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+grade.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -238,7 +238,7 @@ grade.url = (args: { session: string | number | { id: string | number } } | [ses
 * @see app/Http/Controllers/GradingController.php:67
 * @route '/grading/session/{session}/grade'
 */
-grade.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+grade.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: grade.url(args, options),
     method: 'post',
 })
@@ -248,7 +248,7 @@ grade.post = (args: { session: string | number | { id: string | number } } | [se
 * @see app/Http/Controllers/GradingController.php:67
 * @route '/grading/session/{session}/grade'
 */
-const gradeForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const gradeForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: grade.url(args, options),
     method: 'post',
 })
@@ -258,7 +258,7 @@ const gradeForm = (args: { session: string | number | { id: string | number } } 
 * @see app/Http/Controllers/GradingController.php:67
 * @route '/grading/session/{session}/grade'
 */
-gradeForm.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+gradeForm.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: grade.url(args, options),
     method: 'post',
 })
@@ -270,7 +270,7 @@ grade.form = gradeForm
 * @see app/Http/Controllers/GradingController.php:114
 * @route '/grading/session/{session}/preview-pdf'
 */
-export const previewPdf = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const previewPdf = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: previewPdf.url(args, options),
     method: 'get',
 })
@@ -285,7 +285,7 @@ previewPdf.definition = {
 * @see app/Http/Controllers/GradingController.php:114
 * @route '/grading/session/{session}/preview-pdf'
 */
-previewPdf.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+previewPdf.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -318,7 +318,7 @@ previewPdf.url = (args: { session: string | number | { id: string | number } } |
 * @see app/Http/Controllers/GradingController.php:114
 * @route '/grading/session/{session}/preview-pdf'
 */
-previewPdf.get = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+previewPdf.get = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: previewPdf.url(args, options),
     method: 'get',
 })
@@ -328,7 +328,7 @@ previewPdf.get = (args: { session: string | number | { id: string | number } } |
 * @see app/Http/Controllers/GradingController.php:114
 * @route '/grading/session/{session}/preview-pdf'
 */
-previewPdf.head = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+previewPdf.head = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: previewPdf.url(args, options),
     method: 'head',
 })
@@ -338,7 +338,7 @@ previewPdf.head = (args: { session: string | number | { id: string | number } } 
 * @see app/Http/Controllers/GradingController.php:114
 * @route '/grading/session/{session}/preview-pdf'
 */
-const previewPdfForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const previewPdfForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: previewPdf.url(args, options),
     method: 'get',
 })
@@ -348,7 +348,7 @@ const previewPdfForm = (args: { session: string | number | { id: string | number
 * @see app/Http/Controllers/GradingController.php:114
 * @route '/grading/session/{session}/preview-pdf'
 */
-previewPdfForm.get = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+previewPdfForm.get = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: previewPdf.url(args, options),
     method: 'get',
 })
@@ -358,7 +358,7 @@ previewPdfForm.get = (args: { session: string | number | { id: string | number }
 * @see app/Http/Controllers/GradingController.php:114
 * @route '/grading/session/{session}/preview-pdf'
 */
-previewPdfForm.head = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+previewPdfForm.head = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: previewPdf.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
