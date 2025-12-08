@@ -6,11 +6,13 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [
+        // FIXED: Only run wayfinder if NOT on Vercel, and pass the config here
         process.env.VERCEL
         ? null
         : wayfinder({
             formVariants: true,
         }),
+
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
             ssr: 'resources/js/ssr.tsx',
