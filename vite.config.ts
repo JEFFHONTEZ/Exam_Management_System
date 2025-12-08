@@ -6,18 +6,20 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [
+        process.env.VERCEL
+        ? null
+        : wayfinder({
+            formVariants: true,
+        }),
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
         }),
         react(),
-        tailwindcss(),
-        wayfinder({
-            formVariants: true,
-        }),
-    ],
-    esbuild: {
-        jsx: 'automatic',
-    },
+                            tailwindcss(),
+    ].filter(Boolean), // <--- This is important! It removes the 'null' so Vite doesn't crash
+                            esbuild: {
+                                jsx: 'automatic',
+                            },
 });
