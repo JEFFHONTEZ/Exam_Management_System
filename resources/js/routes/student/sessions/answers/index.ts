@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-export const bulk = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const bulk = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: bulk.url(args, options),
     method: 'post',
 })
@@ -19,7 +19,7 @@ bulk.definition = {
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-bulk.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+bulk.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -52,7 +52,7 @@ bulk.url = (args: { session: string | number | { id: string | number } } | [sess
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-bulk.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+bulk.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: bulk.url(args, options),
     method: 'post',
 })
@@ -62,7 +62,7 @@ bulk.post = (args: { session: string | number | { id: string | number } } | [ses
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-const bulkForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const bulkForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: bulk.url(args, options),
     method: 'post',
 })
@@ -72,7 +72,7 @@ const bulkForm = (args: { session: string | number | { id: string | number } } |
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-bulkForm.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+bulkForm.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: bulk.url(args, options),
     method: 'post',
 })

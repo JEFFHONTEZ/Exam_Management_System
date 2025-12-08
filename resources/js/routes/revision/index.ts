@@ -141,7 +141,7 @@ store.form = storeForm
 * @see app/Http/Controllers/RevisionDocumentController.php:96
 * @route '/revision/{document}'
 */
-export const destroy = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -156,7 +156,7 @@ destroy.definition = {
 * @see app/Http/Controllers/RevisionDocumentController.php:96
 * @route '/revision/{document}'
 */
-destroy.url = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroy.url = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { document: args }
     }
@@ -189,7 +189,7 @@ destroy.url = (args: { document: string | number | { id: string | number } } | [
 * @see app/Http/Controllers/RevisionDocumentController.php:96
 * @route '/revision/{document}'
 */
-destroy.delete = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -199,7 +199,7 @@ destroy.delete = (args: { document: string | number | { id: string | number } } 
 * @see app/Http/Controllers/RevisionDocumentController.php:96
 * @route '/revision/{document}'
 */
-const destroyForm = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroyForm = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -214,7 +214,7 @@ const destroyForm = (args: { document: string | number | { id: string | number }
 * @see app/Http/Controllers/RevisionDocumentController.php:96
 * @route '/revision/{document}'
 */
-destroyForm.delete = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroyForm.delete = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -231,7 +231,7 @@ destroy.form = destroyForm
 * @see app/Http/Controllers/RevisionDocumentController.php:138
 * @route '/revision/{document}/download'
 */
-export const download = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const download = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: download.url(args, options),
     method: 'get',
 })
@@ -246,7 +246,7 @@ download.definition = {
 * @see app/Http/Controllers/RevisionDocumentController.php:138
 * @route '/revision/{document}/download'
 */
-download.url = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+download.url = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { document: args }
     }
@@ -279,7 +279,7 @@ download.url = (args: { document: string | number | { id: string | number } } | 
 * @see app/Http/Controllers/RevisionDocumentController.php:138
 * @route '/revision/{document}/download'
 */
-download.get = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+download.get = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: download.url(args, options),
     method: 'get',
 })
@@ -289,7 +289,7 @@ download.get = (args: { document: string | number | { id: string | number } } | 
 * @see app/Http/Controllers/RevisionDocumentController.php:138
 * @route '/revision/{document}/download'
 */
-download.head = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+download.head = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: download.url(args, options),
     method: 'head',
 })
@@ -299,7 +299,7 @@ download.head = (args: { document: string | number | { id: string | number } } |
 * @see app/Http/Controllers/RevisionDocumentController.php:138
 * @route '/revision/{document}/download'
 */
-const downloadForm = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const downloadForm = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: download.url(args, options),
     method: 'get',
 })
@@ -309,7 +309,7 @@ const downloadForm = (args: { document: string | number | { id: string | number 
 * @see app/Http/Controllers/RevisionDocumentController.php:138
 * @route '/revision/{document}/download'
 */
-downloadForm.get = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+downloadForm.get = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: download.url(args, options),
     method: 'get',
 })
@@ -319,7 +319,7 @@ downloadForm.get = (args: { document: string | number | { id: string | number } 
 * @see app/Http/Controllers/RevisionDocumentController.php:138
 * @route '/revision/{document}/download'
 */
-downloadForm.head = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+downloadForm.head = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: download.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -336,7 +336,7 @@ download.form = downloadForm
 * @see app/Http/Controllers/RevisionDocumentController.php:151
 * @route '/revision/{document}/view'
 */
-export const view = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const view = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: view.url(args, options),
     method: 'get',
 })
@@ -351,7 +351,7 @@ view.definition = {
 * @see app/Http/Controllers/RevisionDocumentController.php:151
 * @route '/revision/{document}/view'
 */
-view.url = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+view.url = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { document: args }
     }
@@ -384,7 +384,7 @@ view.url = (args: { document: string | number | { id: string | number } } | [doc
 * @see app/Http/Controllers/RevisionDocumentController.php:151
 * @route '/revision/{document}/view'
 */
-view.get = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+view.get = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: view.url(args, options),
     method: 'get',
 })
@@ -394,7 +394,7 @@ view.get = (args: { document: string | number | { id: string | number } } | [doc
 * @see app/Http/Controllers/RevisionDocumentController.php:151
 * @route '/revision/{document}/view'
 */
-view.head = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+view.head = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: view.url(args, options),
     method: 'head',
 })
@@ -404,7 +404,7 @@ view.head = (args: { document: string | number | { id: string | number } } | [do
 * @see app/Http/Controllers/RevisionDocumentController.php:151
 * @route '/revision/{document}/view'
 */
-const viewForm = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const viewForm = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, options),
     method: 'get',
 })
@@ -414,7 +414,7 @@ const viewForm = (args: { document: string | number | { id: string | number } } 
 * @see app/Http/Controllers/RevisionDocumentController.php:151
 * @route '/revision/{document}/view'
 */
-viewForm.get = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+viewForm.get = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, options),
     method: 'get',
 })
@@ -424,7 +424,7 @@ viewForm.get = (args: { document: string | number | { id: string | number } } | 
 * @see app/Http/Controllers/RevisionDocumentController.php:151
 * @route '/revision/{document}/view'
 */
-viewForm.head = (args: { document: string | number | { id: string | number } } | [document: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+viewForm.head = (args: { document: number | { id: number } } | [document: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: view.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-export const pdf = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const pdf = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: pdf.url(args, options),
     method: 'get',
 })
@@ -19,7 +19,7 @@ pdf.definition = {
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-pdf.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+pdf.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -52,7 +52,7 @@ pdf.url = (args: { session: string | number | { id: string | number } } | [sessi
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-pdf.get = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+pdf.get = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: pdf.url(args, options),
     method: 'get',
 })
@@ -62,7 +62,7 @@ pdf.get = (args: { session: string | number | { id: string | number } } | [sessi
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-pdf.head = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+pdf.head = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: pdf.url(args, options),
     method: 'head',
 })
@@ -72,7 +72,7 @@ pdf.head = (args: { session: string | number | { id: string | number } } | [sess
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-const pdfForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const pdfForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, options),
     method: 'get',
 })
@@ -82,7 +82,7 @@ const pdfForm = (args: { session: string | number | { id: string | number } } | 
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-pdfForm.get = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+pdfForm.get = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, options),
     method: 'get',
 })
@@ -92,7 +92,7 @@ pdfForm.get = (args: { session: string | number | { id: string | number } } | [s
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-pdfForm.head = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+pdfForm.head = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: pdf.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

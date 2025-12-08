@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Http/Controllers/TeacherController.php:244
 * @route '/courses/{course}/teacher-assignments'
 */
-export const assignments = (args: { course: string | number | { id: string | number } } | [course: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const assignments = (args: { course: number | { id: number } } | [course: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: assignments.url(args, options),
     method: 'get',
 })
@@ -19,7 +19,7 @@ assignments.definition = {
 * @see app/Http/Controllers/TeacherController.php:244
 * @route '/courses/{course}/teacher-assignments'
 */
-assignments.url = (args: { course: string | number | { id: string | number } } | [course: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+assignments.url = (args: { course: number | { id: number } } | [course: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { course: args }
     }
@@ -52,7 +52,7 @@ assignments.url = (args: { course: string | number | { id: string | number } } |
 * @see app/Http/Controllers/TeacherController.php:244
 * @route '/courses/{course}/teacher-assignments'
 */
-assignments.get = (args: { course: string | number | { id: string | number } } | [course: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+assignments.get = (args: { course: number | { id: number } } | [course: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: assignments.url(args, options),
     method: 'get',
 })
@@ -62,7 +62,7 @@ assignments.get = (args: { course: string | number | { id: string | number } } |
 * @see app/Http/Controllers/TeacherController.php:244
 * @route '/courses/{course}/teacher-assignments'
 */
-assignments.head = (args: { course: string | number | { id: string | number } } | [course: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+assignments.head = (args: { course: number | { id: number } } | [course: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: assignments.url(args, options),
     method: 'head',
 })
@@ -72,7 +72,7 @@ assignments.head = (args: { course: string | number | { id: string | number } } 
 * @see app/Http/Controllers/TeacherController.php:244
 * @route '/courses/{course}/teacher-assignments'
 */
-const assignmentsForm = (args: { course: string | number | { id: string | number } } | [course: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const assignmentsForm = (args: { course: number | { id: number } } | [course: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: assignments.url(args, options),
     method: 'get',
 })
@@ -82,7 +82,7 @@ const assignmentsForm = (args: { course: string | number | { id: string | number
 * @see app/Http/Controllers/TeacherController.php:244
 * @route '/courses/{course}/teacher-assignments'
 */
-assignmentsForm.get = (args: { course: string | number | { id: string | number } } | [course: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+assignmentsForm.get = (args: { course: number | { id: number } } | [course: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: assignments.url(args, options),
     method: 'get',
 })
@@ -92,7 +92,7 @@ assignmentsForm.get = (args: { course: string | number | { id: string | number }
 * @see app/Http/Controllers/TeacherController.php:244
 * @route '/courses/{course}/teacher-assignments'
 */
-assignmentsForm.head = (args: { course: string | number | { id: string | number } } | [course: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+assignmentsForm.head = (args: { course: number | { id: number } } | [course: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: assignments.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',

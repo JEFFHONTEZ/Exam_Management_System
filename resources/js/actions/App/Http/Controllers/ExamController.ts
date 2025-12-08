@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-export const index = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const index = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(args, options),
     method: 'get',
 })
@@ -19,7 +19,7 @@ index.definition = {
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-index.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+index.url = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -49,7 +49,7 @@ index.url = (args: { course: string | number | { id: string | number }, unit: st
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-index.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+index.get = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(args, options),
     method: 'get',
 })
@@ -59,7 +59,7 @@ index.get = (args: { course: string | number | { id: string | number }, unit: st
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-index.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+index.head = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: index.url(args, options),
     method: 'head',
 })
@@ -69,7 +69,7 @@ index.head = (args: { course: string | number | { id: string | number }, unit: s
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-const indexForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const indexForm = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, options),
     method: 'get',
 })
@@ -79,7 +79,7 @@ const indexForm = (args: { course: string | number | { id: string | number }, un
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-indexForm.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+indexForm.get = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, options),
     method: 'get',
 })
@@ -89,7 +89,7 @@ indexForm.get = (args: { course: string | number | { id: string | number }, unit
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-indexForm.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+indexForm.head = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -106,7 +106,7 @@ index.form = indexForm
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-const create2e077c5d54e25841ca211ce5a27db906 = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const create2e077c5d54e25841ca211ce5a27db906 = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create2e077c5d54e25841ca211ce5a27db906.url(args, options),
     method: 'get',
 })
@@ -121,7 +121,7 @@ create2e077c5d54e25841ca211ce5a27db906.definition = {
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-create2e077c5d54e25841ca211ce5a27db906.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+create2e077c5d54e25841ca211ce5a27db906.url = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -151,7 +151,7 @@ create2e077c5d54e25841ca211ce5a27db906.url = (args: { course: string | number | 
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-create2e077c5d54e25841ca211ce5a27db906.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+create2e077c5d54e25841ca211ce5a27db906.get = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create2e077c5d54e25841ca211ce5a27db906.url(args, options),
     method: 'get',
 })
@@ -161,7 +161,7 @@ create2e077c5d54e25841ca211ce5a27db906.get = (args: { course: string | number | 
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-create2e077c5d54e25841ca211ce5a27db906.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+create2e077c5d54e25841ca211ce5a27db906.head = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: create2e077c5d54e25841ca211ce5a27db906.url(args, options),
     method: 'head',
 })
@@ -171,7 +171,7 @@ create2e077c5d54e25841ca211ce5a27db906.head = (args: { course: string | number |
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-const create2e077c5d54e25841ca211ce5a27db906Form = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const create2e077c5d54e25841ca211ce5a27db906Form = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create2e077c5d54e25841ca211ce5a27db906.url(args, options),
     method: 'get',
 })
@@ -181,7 +181,7 @@ const create2e077c5d54e25841ca211ce5a27db906Form = (args: { course: string | num
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-create2e077c5d54e25841ca211ce5a27db906Form.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+create2e077c5d54e25841ca211ce5a27db906Form.get = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create2e077c5d54e25841ca211ce5a27db906.url(args, options),
     method: 'get',
 })
@@ -191,7 +191,7 @@ create2e077c5d54e25841ca211ce5a27db906Form.get = (args: { course: string | numbe
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-create2e077c5d54e25841ca211ce5a27db906Form.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+create2e077c5d54e25841ca211ce5a27db906Form.head = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create2e077c5d54e25841ca211ce5a27db906.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -311,7 +311,7 @@ export const create = {
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-const store3701a7de375078dde9a0874e6426b2f8 = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+const store3701a7de375078dde9a0874e6426b2f8 = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store3701a7de375078dde9a0874e6426b2f8.url(args, options),
     method: 'post',
 })
@@ -326,7 +326,7 @@ store3701a7de375078dde9a0874e6426b2f8.definition = {
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-store3701a7de375078dde9a0874e6426b2f8.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+store3701a7de375078dde9a0874e6426b2f8.url = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -356,7 +356,7 @@ store3701a7de375078dde9a0874e6426b2f8.url = (args: { course: string | number | {
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-store3701a7de375078dde9a0874e6426b2f8.post = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+store3701a7de375078dde9a0874e6426b2f8.post = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store3701a7de375078dde9a0874e6426b2f8.url(args, options),
     method: 'post',
 })
@@ -366,7 +366,7 @@ store3701a7de375078dde9a0874e6426b2f8.post = (args: { course: string | number | 
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-const store3701a7de375078dde9a0874e6426b2f8Form = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const store3701a7de375078dde9a0874e6426b2f8Form = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: store3701a7de375078dde9a0874e6426b2f8.url(args, options),
     method: 'post',
 })
@@ -376,7 +376,7 @@ const store3701a7de375078dde9a0874e6426b2f8Form = (args: { course: string | numb
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-store3701a7de375078dde9a0874e6426b2f8Form.post = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+store3701a7de375078dde9a0874e6426b2f8Form.post = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: store3701a7de375078dde9a0874e6426b2f8.url(args, options),
     method: 'post',
 })
@@ -448,7 +448,7 @@ export const store = {
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-const editd177400f9ec63d579b4112f47a1fc207 = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const editd177400f9ec63d579b4112f47a1fc207 = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: editd177400f9ec63d579b4112f47a1fc207.url(args, options),
     method: 'get',
 })
@@ -463,7 +463,7 @@ editd177400f9ec63d579b4112f47a1fc207.definition = {
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-editd177400f9ec63d579b4112f47a1fc207.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+editd177400f9ec63d579b4112f47a1fc207.url = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -498,7 +498,7 @@ editd177400f9ec63d579b4112f47a1fc207.url = (args: { course: string | number | { 
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-editd177400f9ec63d579b4112f47a1fc207.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+editd177400f9ec63d579b4112f47a1fc207.get = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: editd177400f9ec63d579b4112f47a1fc207.url(args, options),
     method: 'get',
 })
@@ -508,7 +508,7 @@ editd177400f9ec63d579b4112f47a1fc207.get = (args: { course: string | number | { 
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-editd177400f9ec63d579b4112f47a1fc207.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+editd177400f9ec63d579b4112f47a1fc207.head = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: editd177400f9ec63d579b4112f47a1fc207.url(args, options),
     method: 'head',
 })
@@ -518,7 +518,7 @@ editd177400f9ec63d579b4112f47a1fc207.head = (args: { course: string | number | {
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-const editd177400f9ec63d579b4112f47a1fc207Form = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const editd177400f9ec63d579b4112f47a1fc207Form = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: editd177400f9ec63d579b4112f47a1fc207.url(args, options),
     method: 'get',
 })
@@ -528,7 +528,7 @@ const editd177400f9ec63d579b4112f47a1fc207Form = (args: { course: string | numbe
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-editd177400f9ec63d579b4112f47a1fc207Form.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+editd177400f9ec63d579b4112f47a1fc207Form.get = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: editd177400f9ec63d579b4112f47a1fc207.url(args, options),
     method: 'get',
 })
@@ -538,7 +538,7 @@ editd177400f9ec63d579b4112f47a1fc207Form.get = (args: { course: string | number 
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-editd177400f9ec63d579b4112f47a1fc207Form.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+editd177400f9ec63d579b4112f47a1fc207Form.head = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: editd177400f9ec63d579b4112f47a1fc207.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -554,7 +554,7 @@ editd177400f9ec63d579b4112f47a1fc207.form = editd177400f9ec63d579b4112f47a1fc207
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/exams/{exam}/edit'
 */
-const editd05d8ab053775ca10b82495f04931536 = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+const editd05d8ab053775ca10b82495f04931536 = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: editd05d8ab053775ca10b82495f04931536.url(args, options),
     method: 'get',
 })
@@ -569,7 +569,7 @@ editd05d8ab053775ca10b82495f04931536.definition = {
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/exams/{exam}/edit'
 */
-editd05d8ab053775ca10b82495f04931536.url = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+editd05d8ab053775ca10b82495f04931536.url = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { exam: args }
     }
@@ -602,7 +602,7 @@ editd05d8ab053775ca10b82495f04931536.url = (args: { exam: string | number | { id
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/exams/{exam}/edit'
 */
-editd05d8ab053775ca10b82495f04931536.get = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+editd05d8ab053775ca10b82495f04931536.get = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: editd05d8ab053775ca10b82495f04931536.url(args, options),
     method: 'get',
 })
@@ -612,7 +612,7 @@ editd05d8ab053775ca10b82495f04931536.get = (args: { exam: string | number | { id
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/exams/{exam}/edit'
 */
-editd05d8ab053775ca10b82495f04931536.head = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+editd05d8ab053775ca10b82495f04931536.head = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: editd05d8ab053775ca10b82495f04931536.url(args, options),
     method: 'head',
 })
@@ -622,7 +622,7 @@ editd05d8ab053775ca10b82495f04931536.head = (args: { exam: string | number | { i
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/exams/{exam}/edit'
 */
-const editd05d8ab053775ca10b82495f04931536Form = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const editd05d8ab053775ca10b82495f04931536Form = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: editd05d8ab053775ca10b82495f04931536.url(args, options),
     method: 'get',
 })
@@ -632,7 +632,7 @@ const editd05d8ab053775ca10b82495f04931536Form = (args: { exam: string | number 
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/exams/{exam}/edit'
 */
-editd05d8ab053775ca10b82495f04931536Form.get = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+editd05d8ab053775ca10b82495f04931536Form.get = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: editd05d8ab053775ca10b82495f04931536.url(args, options),
     method: 'get',
 })
@@ -642,7 +642,7 @@ editd05d8ab053775ca10b82495f04931536Form.get = (args: { exam: string | number | 
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/exams/{exam}/edit'
 */
-editd05d8ab053775ca10b82495f04931536Form.head = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+editd05d8ab053775ca10b82495f04931536Form.head = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: editd05d8ab053775ca10b82495f04931536.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -664,7 +664,7 @@ export const edit = {
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-const update57308b751156c613aaa3bb15670d7cfc = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+const update57308b751156c613aaa3bb15670d7cfc = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update57308b751156c613aaa3bb15670d7cfc.url(args, options),
     method: 'put',
 })
@@ -679,7 +679,7 @@ update57308b751156c613aaa3bb15670d7cfc.definition = {
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-update57308b751156c613aaa3bb15670d7cfc.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+update57308b751156c613aaa3bb15670d7cfc.url = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -714,7 +714,7 @@ update57308b751156c613aaa3bb15670d7cfc.url = (args: { course: string | number | 
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-update57308b751156c613aaa3bb15670d7cfc.put = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update57308b751156c613aaa3bb15670d7cfc.put = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update57308b751156c613aaa3bb15670d7cfc.url(args, options),
     method: 'put',
 })
@@ -724,7 +724,7 @@ update57308b751156c613aaa3bb15670d7cfc.put = (args: { course: string | number | 
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-const update57308b751156c613aaa3bb15670d7cfcForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const update57308b751156c613aaa3bb15670d7cfcForm = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update57308b751156c613aaa3bb15670d7cfc.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -739,7 +739,7 @@ const update57308b751156c613aaa3bb15670d7cfcForm = (args: { course: string | num
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-update57308b751156c613aaa3bb15670d7cfcForm.put = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+update57308b751156c613aaa3bb15670d7cfcForm.put = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update57308b751156c613aaa3bb15670d7cfc.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -755,7 +755,7 @@ update57308b751156c613aaa3bb15670d7cfc.form = update57308b751156c613aaa3bb15670d
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/exams/{exam}'
 */
-const updatee4d4df55d80a723efc4aee0e9b50ee5d = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+const updatee4d4df55d80a723efc4aee0e9b50ee5d = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: updatee4d4df55d80a723efc4aee0e9b50ee5d.url(args, options),
     method: 'put',
 })
@@ -770,7 +770,7 @@ updatee4d4df55d80a723efc4aee0e9b50ee5d.definition = {
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/exams/{exam}'
 */
-updatee4d4df55d80a723efc4aee0e9b50ee5d.url = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+updatee4d4df55d80a723efc4aee0e9b50ee5d.url = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { exam: args }
     }
@@ -803,7 +803,7 @@ updatee4d4df55d80a723efc4aee0e9b50ee5d.url = (args: { exam: string | number | { 
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/exams/{exam}'
 */
-updatee4d4df55d80a723efc4aee0e9b50ee5d.put = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+updatee4d4df55d80a723efc4aee0e9b50ee5d.put = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: updatee4d4df55d80a723efc4aee0e9b50ee5d.url(args, options),
     method: 'put',
 })
@@ -813,7 +813,7 @@ updatee4d4df55d80a723efc4aee0e9b50ee5d.put = (args: { exam: string | number | { 
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/exams/{exam}'
 */
-const updatee4d4df55d80a723efc4aee0e9b50ee5dForm = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const updatee4d4df55d80a723efc4aee0e9b50ee5dForm = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: updatee4d4df55d80a723efc4aee0e9b50ee5d.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -828,7 +828,7 @@ const updatee4d4df55d80a723efc4aee0e9b50ee5dForm = (args: { exam: string | numbe
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/exams/{exam}'
 */
-updatee4d4df55d80a723efc4aee0e9b50ee5dForm.put = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+updatee4d4df55d80a723efc4aee0e9b50ee5dForm.put = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: updatee4d4df55d80a723efc4aee0e9b50ee5d.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -850,7 +850,7 @@ export const update = {
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-const destroy57308b751156c613aaa3bb15670d7cfc = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+const destroy57308b751156c613aaa3bb15670d7cfc = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy57308b751156c613aaa3bb15670d7cfc.url(args, options),
     method: 'delete',
 })
@@ -865,7 +865,7 @@ destroy57308b751156c613aaa3bb15670d7cfc.definition = {
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-destroy57308b751156c613aaa3bb15670d7cfc.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+destroy57308b751156c613aaa3bb15670d7cfc.url = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -900,7 +900,7 @@ destroy57308b751156c613aaa3bb15670d7cfc.url = (args: { course: string | number |
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-destroy57308b751156c613aaa3bb15670d7cfc.delete = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy57308b751156c613aaa3bb15670d7cfc.delete = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy57308b751156c613aaa3bb15670d7cfc.url(args, options),
     method: 'delete',
 })
@@ -910,7 +910,7 @@ destroy57308b751156c613aaa3bb15670d7cfc.delete = (args: { course: string | numbe
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-const destroy57308b751156c613aaa3bb15670d7cfcForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroy57308b751156c613aaa3bb15670d7cfcForm = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy57308b751156c613aaa3bb15670d7cfc.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -925,7 +925,7 @@ const destroy57308b751156c613aaa3bb15670d7cfcForm = (args: { course: string | nu
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-destroy57308b751156c613aaa3bb15670d7cfcForm.delete = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroy57308b751156c613aaa3bb15670d7cfcForm.delete = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy57308b751156c613aaa3bb15670d7cfc.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -941,7 +941,7 @@ destroy57308b751156c613aaa3bb15670d7cfc.form = destroy57308b751156c613aaa3bb1567
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/exams/{exam}'
 */
-const destroye4d4df55d80a723efc4aee0e9b50ee5d = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+const destroye4d4df55d80a723efc4aee0e9b50ee5d = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroye4d4df55d80a723efc4aee0e9b50ee5d.url(args, options),
     method: 'delete',
 })
@@ -956,7 +956,7 @@ destroye4d4df55d80a723efc4aee0e9b50ee5d.definition = {
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/exams/{exam}'
 */
-destroye4d4df55d80a723efc4aee0e9b50ee5d.url = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+destroye4d4df55d80a723efc4aee0e9b50ee5d.url = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { exam: args }
     }
@@ -989,7 +989,7 @@ destroye4d4df55d80a723efc4aee0e9b50ee5d.url = (args: { exam: string | number | {
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/exams/{exam}'
 */
-destroye4d4df55d80a723efc4aee0e9b50ee5d.delete = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroye4d4df55d80a723efc4aee0e9b50ee5d.delete = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroye4d4df55d80a723efc4aee0e9b50ee5d.url(args, options),
     method: 'delete',
 })
@@ -999,7 +999,7 @@ destroye4d4df55d80a723efc4aee0e9b50ee5d.delete = (args: { exam: string | number 
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/exams/{exam}'
 */
-const destroye4d4df55d80a723efc4aee0e9b50ee5dForm = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroye4d4df55d80a723efc4aee0e9b50ee5dForm = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroye4d4df55d80a723efc4aee0e9b50ee5d.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -1014,7 +1014,7 @@ const destroye4d4df55d80a723efc4aee0e9b50ee5dForm = (args: { exam: string | numb
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/exams/{exam}'
 */
-destroye4d4df55d80a723efc4aee0e9b50ee5dForm.delete = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroye4d4df55d80a723efc4aee0e9b50ee5dForm.delete = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroye4d4df55d80a723efc4aee0e9b50ee5d.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',

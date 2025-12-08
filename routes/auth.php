@@ -5,21 +5,41 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\RegisteredUserController;
+// use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+
+    Route::get('super-secret-login', [AuthenticatedSessionController::class, 'create'])
+        ->defaults('role', 'admin')
+        /** Force the role to be admin */
+        ->name('login.admin');
+
+    Route::post('super-secret-login-v2', [AuthenticatedSessionController::class, 'store'])
+        ->middleware('throttle:admin-login') // Use the strict limiter
+        ->defaults('role', 'admin')
+        ->name('login.admin.store');
+
+
+    /** BLOCK GENERIC LOGIN (Redirect to Welcome/Home) */
+    /**  If someone types just "/login", send them back to the landing page */
+    Route::get('login', function () {
+        return redirect('/');
+    })->name('login.generic');
+
 //   Route::get('register', [RegisteredUserController::class, 'create'])
 //         ->name('register');
 
 //     Route::post('register', [RegisteredUserController::class, 'store'])
 //         ->name('register.store');  
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+    /** CHANGE: Allow an optional {role} parameter,,,,,, valid roles: 'student', 'teacher', 'admin' */
+    Route::get('login/{role?}', [AuthenticatedSessionController::class, 'create'])
+        ->where('role', 'student|teacher')
         ->name('login');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store'])
+    Route::post('login/{role?}', [AuthenticatedSessionController::class, 'store'])
         ->name('login.store');
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])

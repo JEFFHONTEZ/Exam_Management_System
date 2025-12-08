@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-export const index = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const index = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(args, options),
     method: 'get',
 })
@@ -19,7 +19,7 @@ index.definition = {
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-index.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+index.url = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -49,7 +49,7 @@ index.url = (args: { course: string | number | { id: string | number }, unit: st
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-index.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+index.get = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(args, options),
     method: 'get',
 })
@@ -59,7 +59,7 @@ index.get = (args: { course: string | number | { id: string | number }, unit: st
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-index.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+index.head = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: index.url(args, options),
     method: 'head',
 })
@@ -69,7 +69,7 @@ index.head = (args: { course: string | number | { id: string | number }, unit: s
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-const indexForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const indexForm = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, options),
     method: 'get',
 })
@@ -79,7 +79,7 @@ const indexForm = (args: { course: string | number | { id: string | number }, un
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-indexForm.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+indexForm.get = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, options),
     method: 'get',
 })
@@ -89,7 +89,7 @@ indexForm.get = (args: { course: string | number | { id: string | number }, unit
 * @see app/Http/Controllers/ExamController.php:68
 * @route '/courses/{course}/units/{unit}/exams'
 */
-indexForm.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+indexForm.head = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: index.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -106,7 +106,7 @@ index.form = indexForm
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-export const create = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const create = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create.url(args, options),
     method: 'get',
 })
@@ -121,7 +121,7 @@ create.definition = {
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-create.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+create.url = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -151,7 +151,7 @@ create.url = (args: { course: string | number | { id: string | number }, unit: s
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-create.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+create.get = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: create.url(args, options),
     method: 'get',
 })
@@ -161,7 +161,7 @@ create.get = (args: { course: string | number | { id: string | number }, unit: s
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-create.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+create.head = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: create.url(args, options),
     method: 'head',
 })
@@ -171,7 +171,7 @@ create.head = (args: { course: string | number | { id: string | number }, unit: 
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-const createForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const createForm = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create.url(args, options),
     method: 'get',
 })
@@ -181,7 +181,7 @@ const createForm = (args: { course: string | number | { id: string | number }, u
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-createForm.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+createForm.get = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create.url(args, options),
     method: 'get',
 })
@@ -191,7 +191,7 @@ createForm.get = (args: { course: string | number | { id: string | number }, uni
 * @see app/Http/Controllers/ExamController.php:111
 * @route '/courses/{course}/units/{unit}/exams/create'
 */
-createForm.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+createForm.head = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: create.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -208,7 +208,7 @@ create.form = createForm
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-export const store = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const store = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store.url(args, options),
     method: 'post',
 })
@@ -223,7 +223,7 @@ store.definition = {
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-store.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+store.url = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -253,7 +253,7 @@ store.url = (args: { course: string | number | { id: string | number }, unit: st
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-store.post = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+store.post = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: store.url(args, options),
     method: 'post',
 })
@@ -263,7 +263,7 @@ store.post = (args: { course: string | number | { id: string | number }, unit: s
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-const storeForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const storeForm = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: store.url(args, options),
     method: 'post',
 })
@@ -273,7 +273,7 @@ const storeForm = (args: { course: string | number | { id: string | number }, un
 * @see app/Http/Controllers/ExamController.php:128
 * @route '/courses/{course}/units/{unit}/exams'
 */
-storeForm.post = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+storeForm.post = (args: { course: number | { id: number }, unit: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: store.url(args, options),
     method: 'post',
 })
@@ -285,7 +285,7 @@ store.form = storeForm
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-export const edit = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const edit = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -300,7 +300,7 @@ edit.definition = {
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-edit.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+edit.url = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -335,7 +335,7 @@ edit.url = (args: { course: string | number | { id: string | number }, unit: str
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-edit.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+edit.get = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: edit.url(args, options),
     method: 'get',
 })
@@ -345,7 +345,7 @@ edit.get = (args: { course: string | number | { id: string | number }, unit: str
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-edit.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+edit.head = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: edit.url(args, options),
     method: 'head',
 })
@@ -355,7 +355,7 @@ edit.head = (args: { course: string | number | { id: string | number }, unit: st
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-const editForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const editForm = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url(args, options),
     method: 'get',
 })
@@ -365,7 +365,7 @@ const editForm = (args: { course: string | number | { id: string | number }, uni
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-editForm.get = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+editForm.get = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url(args, options),
     method: 'get',
 })
@@ -375,7 +375,7 @@ editForm.get = (args: { course: string | number | { id: string | number }, unit:
 * @see app/Http/Controllers/ExamController.php:171
 * @route '/courses/{course}/units/{unit}/exams/{exam}/edit'
 */
-editForm.head = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+editForm.head = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: edit.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -392,7 +392,7 @@ edit.form = editForm
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-export const update = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -407,7 +407,7 @@ update.definition = {
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-update.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+update.url = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -442,7 +442,7 @@ update.url = (args: { course: string | number | { id: string | number }, unit: s
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-update.put = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -452,7 +452,7 @@ update.put = (args: { course: string | number | { id: string | number }, unit: s
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-const updateForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const updateForm = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -467,7 +467,7 @@ const updateForm = (args: { course: string | number | { id: string | number }, u
 * @see app/Http/Controllers/ExamController.php:188
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-updateForm.put = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+updateForm.put = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: update.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'PUT',
@@ -484,7 +484,7 @@ update.form = updateForm
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-export const destroy = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -499,7 +499,7 @@ destroy.definition = {
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-destroy.url = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions) => {
+destroy.url = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions) => {
     if (Array.isArray(args)) {
         args = {
             course: args[0],
@@ -534,7 +534,7 @@ destroy.url = (args: { course: string | number | { id: string | number }, unit: 
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-destroy.delete = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -544,7 +544,7 @@ destroy.delete = (args: { course: string | number | { id: string | number }, uni
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-const destroyForm = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const destroyForm = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',
@@ -559,7 +559,7 @@ const destroyForm = (args: { course: string | number | { id: string | number }, 
 * @see app/Http/Controllers/ExamController.php:229
 * @route '/courses/{course}/units/{unit}/exams/{exam}'
 */
-destroyForm.delete = (args: { course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } } | [course: string | number | { id: string | number }, unit: string | number | { id: string | number }, exam: string | number | { id: string | number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+destroyForm.delete = (args: { course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } } | [course: number | { id: number }, unit: number | { id: number }, exam: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: destroy.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'DELETE',

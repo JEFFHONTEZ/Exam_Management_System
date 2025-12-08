@@ -4,7 +4,7 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-export const start = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const start = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: start.url(args, options),
     method: 'get',
 })
@@ -19,7 +19,7 @@ start.definition = {
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-start.url = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+start.url = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { exam: args }
     }
@@ -52,7 +52,7 @@ start.url = (args: { exam: string | number | { id: string | number } } | [exam: 
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-start.get = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+start.get = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: start.url(args, options),
     method: 'get',
 })
@@ -62,7 +62,7 @@ start.get = (args: { exam: string | number | { id: string | number } } | [exam: 
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-start.head = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+start.head = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: start.url(args, options),
     method: 'head',
 })
@@ -72,7 +72,7 @@ start.head = (args: { exam: string | number | { id: string | number } } | [exam:
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-const startForm = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const startForm = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: start.url(args, options),
     method: 'get',
 })
@@ -82,7 +82,7 @@ const startForm = (args: { exam: string | number | { id: string | number } } | [
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-startForm.get = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+startForm.get = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: start.url(args, options),
     method: 'get',
 })
@@ -92,7 +92,7 @@ startForm.get = (args: { exam: string | number | { id: string | number } } | [ex
 * @see app/Http/Controllers/StudentExamController.php:24
 * @route '/exams/{exam}/start'
 */
-startForm.head = (args: { exam: string | number | { id: string | number } } | [exam: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+startForm.head = (args: { exam: number | { id: number } } | [exam: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: start.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
@@ -109,7 +109,7 @@ start.form = startForm
 * @see app/Http/Controllers/StudentExamController.php:99
 * @route '/sessions/{session}/answer'
 */
-export const answer = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const answer = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: answer.url(args, options),
     method: 'post',
 })
@@ -124,7 +124,7 @@ answer.definition = {
 * @see app/Http/Controllers/StudentExamController.php:99
 * @route '/sessions/{session}/answer'
 */
-answer.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+answer.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -157,7 +157,7 @@ answer.url = (args: { session: string | number | { id: string | number } } | [se
 * @see app/Http/Controllers/StudentExamController.php:99
 * @route '/sessions/{session}/answer'
 */
-answer.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+answer.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: answer.url(args, options),
     method: 'post',
 })
@@ -167,7 +167,7 @@ answer.post = (args: { session: string | number | { id: string | number } } | [s
 * @see app/Http/Controllers/StudentExamController.php:99
 * @route '/sessions/{session}/answer'
 */
-const answerForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const answerForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: answer.url(args, options),
     method: 'post',
 })
@@ -177,7 +177,7 @@ const answerForm = (args: { session: string | number | { id: string | number } }
 * @see app/Http/Controllers/StudentExamController.php:99
 * @route '/sessions/{session}/answer'
 */
-answerForm.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+answerForm.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: answer.url(args, options),
     method: 'post',
 })
@@ -189,7 +189,7 @@ answer.form = answerForm
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-export const bulkAnswer = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const bulkAnswer = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: bulkAnswer.url(args, options),
     method: 'post',
 })
@@ -204,7 +204,7 @@ bulkAnswer.definition = {
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-bulkAnswer.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+bulkAnswer.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -237,7 +237,7 @@ bulkAnswer.url = (args: { session: string | number | { id: string | number } } |
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-bulkAnswer.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+bulkAnswer.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: bulkAnswer.url(args, options),
     method: 'post',
 })
@@ -247,7 +247,7 @@ bulkAnswer.post = (args: { session: string | number | { id: string | number } } 
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-const bulkAnswerForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const bulkAnswerForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: bulkAnswer.url(args, options),
     method: 'post',
 })
@@ -257,7 +257,7 @@ const bulkAnswerForm = (args: { session: string | number | { id: string | number
 * @see app/Http/Controllers/StudentExamController.php:140
 * @route '/sessions/{session}/answers/bulk'
 */
-bulkAnswerForm.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+bulkAnswerForm.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: bulkAnswer.url(args, options),
     method: 'post',
 })
@@ -269,7 +269,7 @@ bulkAnswer.form = bulkAnswerForm
 * @see app/Http/Controllers/StudentExamController.php:178
 * @route '/sessions/{session}/submit'
 */
-export const submit = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+export const submit = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: submit.url(args, options),
     method: 'post',
 })
@@ -284,7 +284,7 @@ submit.definition = {
 * @see app/Http/Controllers/StudentExamController.php:178
 * @route '/sessions/{session}/submit'
 */
-submit.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+submit.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -317,7 +317,7 @@ submit.url = (args: { session: string | number | { id: string | number } } | [se
 * @see app/Http/Controllers/StudentExamController.php:178
 * @route '/sessions/{session}/submit'
 */
-submit.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+submit.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     url: submit.url(args, options),
     method: 'post',
 })
@@ -327,7 +327,7 @@ submit.post = (args: { session: string | number | { id: string | number } } | [s
 * @see app/Http/Controllers/StudentExamController.php:178
 * @route '/sessions/{session}/submit'
 */
-const submitForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+const submitForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: submit.url(args, options),
     method: 'post',
 })
@@ -337,7 +337,7 @@ const submitForm = (args: { session: string | number | { id: string | number } }
 * @see app/Http/Controllers/StudentExamController.php:178
 * @route '/sessions/{session}/submit'
 */
-submitForm.post = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+submitForm.post = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
     action: submit.url(args, options),
     method: 'post',
 })
@@ -430,7 +430,7 @@ results.form = resultsForm
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-export const resultPdf = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const resultPdf = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: resultPdf.url(args, options),
     method: 'get',
 })
@@ -445,7 +445,7 @@ resultPdf.definition = {
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-resultPdf.url = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
+resultPdf.url = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { session: args }
     }
@@ -478,7 +478,7 @@ resultPdf.url = (args: { session: string | number | { id: string | number } } | 
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-resultPdf.get = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+resultPdf.get = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: resultPdf.url(args, options),
     method: 'get',
 })
@@ -488,7 +488,7 @@ resultPdf.get = (args: { session: string | number | { id: string | number } } | 
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-resultPdf.head = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+resultPdf.head = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: resultPdf.url(args, options),
     method: 'head',
 })
@@ -498,7 +498,7 @@ resultPdf.head = (args: { session: string | number | { id: string | number } } |
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-const resultPdfForm = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+const resultPdfForm = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: resultPdf.url(args, options),
     method: 'get',
 })
@@ -508,7 +508,7 @@ const resultPdfForm = (args: { session: string | number | { id: string | number 
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-resultPdfForm.get = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+resultPdfForm.get = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: resultPdf.url(args, options),
     method: 'get',
 })
@@ -518,7 +518,7 @@ resultPdfForm.get = (args: { session: string | number | { id: string | number } 
 * @see app/Http/Controllers/StudentExamController.php:227
 * @route '/student/results/{session}/pdf'
 */
-resultPdfForm.head = (args: { session: string | number | { id: string | number } } | [session: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+resultPdfForm.head = (args: { session: number | { id: number } } | [session: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
     action: resultPdf.url(args, {
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
